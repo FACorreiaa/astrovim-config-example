@@ -11,7 +11,9 @@ return {
   -- },
 
   --themes
-  { "catppuccin/nvim",       name = "catppuccin" },
+  { "catppuccin/nvim",      name = "catppuccin" },
+  { "nvim-lua/plenary.nvim" },
+
   -- {'akinsho/git-conflict.nvim', version = "*", config = true},
 
   {
@@ -55,7 +57,7 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      require("plugins.null-ls")
+      require("user.plugins.null-ls")
     end,
   },
   {
@@ -127,7 +129,7 @@ return {
     event = "BufReadPre",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("plugins.git.signs")
+      require("user.plugins.git.signs")
     end,
   },
   {
@@ -136,7 +138,7 @@ return {
     enabled = false,
     event = "BufRead",
     config = function()
-      require("plugins.git.diffview")
+      require("user.plugins.git.diffview")
     end,
   },
   {
@@ -151,7 +153,7 @@ return {
       "<Leader>gww",
     },
     config = function()
-      require("plugins.git.worktree")
+      require("user.plugins.git.worktree")
     end,
   },
   {
@@ -284,7 +286,7 @@ return {
   },
 
   -- General
-  { "AndrewRadev/switch.vim",      lazy = false },
+  { "AndrewRadev/switch.vim", lazy = false },
   {
     "Wansmer/treesj",
     lazy = true,
@@ -307,9 +309,9 @@ return {
     branch = "main",
     config = true,
   },
-  { "tpope/vim-repeat",           lazy = false },
-  { "tpope/vim-speeddating",      lazy = false },
-  { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
+  { "tpope/vim-repeat",            lazy = false },
+  { "tpope/vim-speeddating",       lazy = false },
+  { "dhruvasagar/vim-table-mode",  ft = { "markdown" } },
   {
     "mg979/vim-visual-multi",
     keys = {
