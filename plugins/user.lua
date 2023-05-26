@@ -268,7 +268,7 @@ return {
             if #results == 1 then
               jump(results[1]) -- argument is optional
             else
-              open(results) -- argument is optional
+              open(results)    -- argument is optional
             end
           end,
         },
@@ -281,52 +281,125 @@ return {
         { "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
       },
     },
+  },
 
+  -- General
+  { "AndrewRadev/switch.vim",      lazy = false },
+  {
+    "Wansmer/treesj",
+    lazy = true,
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+    keys = {
+      { "gJ", "<cmd>TSJToggle<CR>", desc = "Toggle Split/Join" },
+    },
+    config = true,
+  },
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+    branch = "jsx",
+    config = true,
+  },
+  { "LudoPinelli/comment-box.nvim" },
+  {
+    "akinsho/nvim-toggleterm.lua",
+    lazy = false,
+    branch = "main",
+    config = true,
+  },
+  { "tpope/vim-repeat",           lazy = false },
+  { "tpope/vim-speeddating",      lazy = false },
+  { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
+  {
+    "mg979/vim-visual-multi",
+    keys = {
+      "<C-n>",
+      "<C-Up>",
+      "<C-Down>",
+      "<S-Up>",
+      "<S-Down>",
+      "<S-Left>",
+      "<S-Right>",
+    },
+    config = true,
+  },
+  {
+    "nacro90/numb.nvim",
+    lazy = false,
+    config = true,
+  },
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    event = "BufEnter",
+    config = true,
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = { "ZenMode" },
+    config = true,
+  },
+  {
+    "folke/twilight.nvim",
+    config = true,
+  },
+  {
+    "ggandor/lightspeed.nvim",
+    keys = "s",
+    config = true,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    lazy = true,
+    config = true,
+  },
+  {
+    "echasnovski/mini.bufremove",
+    version = "*",
+    config = true,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.bufremove",
+    },
+    version = "*",
+    config = true,
+  },
+  {
+    "vuki656/package-info.nvim",
+    event = "BufEnter package.json",
+    config = true,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    setup = true,
+    ft = { "markdown" },
+  },
+  -- {
+  --   "Shatur/neovim-session-manager",
+  --   lazy = false,
+  --   config = true,
+  -- },
+  { "kylechui/nvim-surround", lazy = false, config = true },
+  {
+    "sunjon/shade.nvim",
+    config = true,
+  },
+  {
+    "rareitems/printer.nvim",
+    event = "BufEnter",
+    ft = {
+      "lua",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+    },
+    config = true,
   },
 }
---   require("catppuccin").setup({
---     flavour = "latte", -- latte, frappe, macchiato, mocha
---     background = { -- :h background
---         light = "latte",
---         dark = "mocha",
---     },
---     transparent_background = true,
---     show_end_of_buffer = false, -- show the '~' characters after the end of buffers
---     term_colors = false,
---     dim_inactive = {
---         enabled = false,
---         shade = "dark",
---         percentage = 0.15,
---     },
---     no_italic = false, -- Force no italic
---     no_bold = false, -- Force no bold
---     no_underline = false, -- Force no underline
---     styles = {
---         comments = { "italic" },
---         conditionals = { "italic" },
---         loops = {},
---         functions = {},
---         keywords = {},
---         strings = {},
---         variables = {},
---         numbers = {},
---         booleans = {},
---         properties = {},
---         types = {},
---         operators = {},
---     },
---     color_overrides = {},
---     custom_highlights = {},
---     integrations = {
---         cmp = true,
---         gitsigns = true,
---         nvimtree = true,
---         telescope = true,
---         notify = true,
---         mini = false,
---         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
---     },
--- })
-
--- setup must be called before loading
--- vim.cmd.colorscheme "catppuccin"
