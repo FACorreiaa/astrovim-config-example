@@ -11,173 +11,202 @@ return {
   -- },
 
   --themes
-  { "catppuccin/nvim", name = "catppuccin"},
+  { "catppuccin/nvim",       name = "catppuccin" },
   -- {'akinsho/git-conflict.nvim', version = "*", config = true},
 
   {
-		"ThePrimeagen/git-worktree.nvim",
-		keys = {
-			"<Leader>gwc",
-			"<Leader>gww",
-		},
-		config = function()
-			require("plugins.git.worktree")
-		end,
-	},
+    "ThePrimeagen/git-worktree.nvim",
+    keys = {
+      "<Leader>gwc",
+      "<Leader>gww",
+    },
+    config = function()
+      require("plugins.git.worktree")
+    end,
+  },
 
   -- Navigating (Telescope/Tree/Refactor)
-	{ "nvim-pack/nvim-spectre" },
-	{
-		"nvim-telescope/telescope.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.telescope")
-		end,
-		dependencies = {
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "cljoly/telescope-repo.nvim" },
-		},
-	},
+  { "nvim-pack/nvim-spectre" },
+  {
+    "nvim-telescope/telescope.nvim",
+    lazy = false,
+    config = function()
+      require("plugins.telescope")
+    end,
+    dependencies = {
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "cljoly/telescope-repo.nvim" },
+    },
+  },
 
-  	-- Formatters
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufNewFile",
-		dependencies = { "mason.nvim" },
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-		},
-		config = function()
-			require("plugins.null-ls")
-		end,
-	},
-	{
-		"ThePrimeagen/git-worktree.nvim",
-		keys = {
-			"<Leader>gwc",
-			"<Leader>gww",
-		},
-		config = function()
-			require("plugins.git.worktree")
-		end,
-	},
+  -- Formatters
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "BufNewFile",
+    dependencies = { "mason.nvim" },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+    config = function()
+      require("plugins.null-ls")
+    end,
+  },
+  {
+    "ThePrimeagen/git-worktree.nvim",
+    keys = {
+      "<Leader>gwc",
+      "<Leader>gww",
+    },
+    config = function()
+      require("plugins.git.worktree")
+    end,
+  },
 
   -- Snippets & Language & Syntax
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = true
-	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		config = true
-	},
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = true
+  },
 
-	-- AI
-	{
-		"jcdickinson/codeium.nvim",
-		event = "InsertEnter",
-		cmd = "Codeium",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		config = true,
-	},
-	{
-		"zbirenbaum/copilot.lua",
-		event = "InsertEnter",
-		config = true
-	},
-	{
-		"Bryley/neoai.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
-		cmd = {
-			"NeoAI",
-			"NeoAIOpen",
-			"NeoAIClose",
-			"NeoAIToggle",
-			"NeoAIContext",
-			"NeoAIContextOpen",
-			"NeoAIContextClose",
-			"NeoAIInject",
-			"NeoAIInjectCode",
-			"NeoAIInjectContext",
-			"NeoAIInjectContextCode",
-		},
-		keys = {
-			{ "<leader>as", desc = "summarize text" },
-			{ "<leader>ag", desc = "generate git message" },
-		},
-		config = true,
-	},
+  -- AI
+  {
+    "jcdickinson/codeium.nvim",
+    event = "InsertEnter",
+    cmd = "Codeium",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = true,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    config = true
+  },
+  {
+    "Bryley/neoai.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = {
+      "NeoAI",
+      "NeoAIOpen",
+      "NeoAIClose",
+      "NeoAIToggle",
+      "NeoAIContext",
+      "NeoAIContextOpen",
+      "NeoAIContextClose",
+      "NeoAIInject",
+      "NeoAIInjectCode",
+      "NeoAIInjectContext",
+      "NeoAIInjectContextCode",
+    },
+    keys = {
+      { "<leader>as", desc = "summarize text" },
+      { "<leader>ag", desc = "generate git message" },
+    },
+    config = true,
+  },
 
   -- Git
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "BufReadPre",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("plugins.git.signs")
-		end,
-	},
-	{
-		"sindrets/diffview.nvim",
-		lazy = true,
-		enabled = false,
-		event = "BufRead",
-		config = function()
-			require("plugins.git.diffview")
-		end,
-	},
-	{
-		"akinsho/git-conflict.nvim",
-		lazy = false,
-    config = true
-	},
-	{
-		"ThePrimeagen/git-worktree.nvim",
-		keys = {
-			"<Leader>gwc",
-			"<Leader>gww",
-		},
-		config = function()
-			require("plugins.git.worktree")
-		end,
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		cmd = {
-			"LazyGit",
-			"LazyGitCurrentFile",
-			"LazyGitFilterCurrentFile",
-			"LazyGitFilter",
-		},
-		config = function()
-			vim.g.lazygit_floating_window_scaling_factor = 1
-		end,
-	},
   {
-		"kdheepak/lazygit.nvim",
-		cmd = {
-			"LazyGit",
-			"LazyGitCurrentFile",
-			"LazyGitFilterCurrentFile",
-			"LazyGitFilter",
-		},
-		config = function()
-			vim.g.lazygit_floating_window_scaling_factor = 1
-		end,
-	}
+    "lewis6991/gitsigns.nvim",
+    event = "BufReadPre",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("plugins.git.signs")
+    end,
+  },
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    enabled = false,
+    event = "BufRead",
+    config = function()
+      require("plugins.git.diffview")
+    end,
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    lazy = false,
+    config = true
+  },
+  {
+    "ThePrimeagen/git-worktree.nvim",
+    keys = {
+      "<Leader>gwc",
+      "<Leader>gww",
+    },
+    config = function()
+      require("plugins.git.worktree")
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitCurrentFile",
+      "LazyGitFilterCurrentFile",
+      "LazyGitFilter",
+    },
+    config = function()
+      vim.g.lazygit_floating_window_scaling_factor = 1
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitCurrentFile",
+      "LazyGitFilterCurrentFile",
+      "LazyGitFilter",
+    },
+    config = function()
+      vim.g.lazygit_floating_window_scaling_factor = 1
+    end,
+  },
+
+  -- LSP Cmp
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    config = true,
+    dependencies = {
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-calc",
+      "saadparwaiz1/cmp_luasnip",
+      { "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+      },
+      {
+        "David-Kunz/cmp-npm",
+        config = true,
+      },
+      {
+        "zbirenbaum/copilot-cmp",
+        config = true,
+      },
+    },
+  },
 }
 --   require("catppuccin").setup({
 --     flavour = "latte", -- latte, frappe, macchiato, mocha
